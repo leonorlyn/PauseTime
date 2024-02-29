@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 @main
 struct MVP_PauseTimeApp: App {
+    // for the authorization
+    init() {
+        NotificationManager.shared.requestAuthorization()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
 }
+
+
