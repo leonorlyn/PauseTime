@@ -11,6 +11,7 @@ import AppKit
 
 class FullScreenManager {
     static let shared = FullScreenManager()
+    private var autoDismissTimer: Timer?
     private var fullScreenWindow: NSWindow?
     
     func scheduleFullScreenNotification() {
@@ -33,15 +34,11 @@ class FullScreenManager {
     }
     
     func dismissFullScreenNotification() {
-        // 关闭窗口并清理引用
-        print("Attempting to close full screen window...")
         if let window = fullScreenWindow {
-            print("Closing window now...")
             window.isReleasedWhenClosed = false
             window.close()
             fullScreenWindow = nil
         }
 
-        print("Full screen window closed.")
     }
 }

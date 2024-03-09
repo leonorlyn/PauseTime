@@ -1,3 +1,4 @@
+
 //
 //  SettingView.swift
 //  MVP_PauseTime
@@ -8,29 +9,27 @@
 import SwiftUI
 
 struct SettingView : View{
-    @AppStorage("notificationType") private var notificationType: NotificationType.RawValue = NotificationType.notification.rawValue
+    @ObservedObject private var appSettings = AppSettings.shared
     
-    var body: some View{
-//        Text("settings")
-//            .font(.headline)
-//
-    VStack {
-        Picker("Notification Type", selection: $notificationType) {
-            Text("Sidebar Notification").tag(NotificationType.notification.rawValue)
-            Text("Full Screen Alert").tag(NotificationType.fullScreen.rawValue)
+    var body: some View {
+        VStack {
+            Picker("Notification Type", selection: $appSettings.notificationType) {
+                Text("Sidebar Notification").tag(NotificationType.notification)
+                Text("Full Screen Alert").tag(NotificationType.fullScreen)
             }
-        .pickerStyle(SegmentedPickerStyle())
-        .padding()
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+            
+            TextField("Work Time (minutes)", value: $appSettings.workTime, formatter: NumberFormatter())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            TextField("Break Time (minutes)", value: $appSettings.breakTime, formatter: NumberFormatter())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
         }
-    .padding()
+        .padding()
     }
-}
-
-
-
-enum NotificationType: String {
-    case notification = "Notification"
-    case fullScreen = "FullScreen"
 }
 
 struct Settingview: PreviewProvider{
