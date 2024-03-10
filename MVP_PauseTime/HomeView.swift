@@ -79,7 +79,8 @@ struct HomeView: View {
                 NotificationManager.shared.scheduleNotification(type: .notification, title: title, body: body)
             case .fullScreen:
                 // Call to FullScreenManager to show a full-screen alert
-                    FullScreenManager.shared.scheduleFullScreenNotification()
+                FullScreenManager.shared.scheduleFullScreenNotification()
+                FullScreenManager.shared.resetAutoDismissTimer()
             }
         }
     }

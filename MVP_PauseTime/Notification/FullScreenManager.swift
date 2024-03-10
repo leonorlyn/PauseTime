@@ -31,6 +31,7 @@ class FullScreenManager {
         NSApp.activate(ignoringOtherApps: true)
         
         fullScreenWindow = window
+        resetAutoDismissTimer()
     }
     
     func dismissFullScreenNotification() {
@@ -39,6 +40,17 @@ class FullScreenManager {
             window.close()
             fullScreenWindow = nil
         }
-
+        // cancel timer
+        autoDismissTimer?.invalidate()
+        autoDismissTimer = nil
+    }
+    
+    func resetAutoDismissTimer() {
+        // cancel the current timer
+        autoDismissTimer?.invalidate()
+        // create a new timer
+        autoDismissTimer = Timer.scheduledTimer(withTimeInterval: Double(AppSettings.shared.breakTime * 60), repeats: false) { [weak self] _ in
+            self?.dismissFullScreenNotification()
+        }
     }
 }
