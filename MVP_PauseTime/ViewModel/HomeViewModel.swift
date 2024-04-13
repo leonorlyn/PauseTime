@@ -12,20 +12,22 @@ import Combine
 class HomeViewModel: ObservableObject {
     @Published var remainingTime: Int // remaining time for the current work or break clock
     @Published var timeActive: Bool
-    @Published var onBreak = false // indicates work or break status
-    
+    @Published var onBreak: Bool // indicates work or break status
+    private var nextWorkTime: Int?
+    private var nextBreakTime: Int?
+   
     
     private var appSettings = AppSettings.shared // get info from appsetting
     private var timerSubscription: AnyCancellable? // optional timesubscription
     private var cancellables = Set<AnyCancellable>()
     
-    private var nextWorkTime: Int?
-    private var nextBreakTime: Int?
-    
     init() {
         // initialize default worktime as remainingTime
         remainingTime = appSettings.workTime * 60
         timeActive = appSettings.timeActive
+        onBreak = appSettings.onBreak
+        nextWorkTime = appSettings.nextWorkTime
+        nextBreakTime = appSettings.nextBreakTime
         
         setupSubscriptions()
     }

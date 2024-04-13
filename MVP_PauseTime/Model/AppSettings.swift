@@ -21,9 +21,27 @@ class AppSettings: ObservableObject {
         }
     }
     
-//    @Published var nextWorkTime: Int?  // Optional, will only be set if the timer is active
-//    @Published var nextBreakTime: Int? // Optional, similar to nextWorkTime
+    @Published var nextWorkTime: Int? { // Optional, will only be set if the timer is active
+        didSet{
+            if let wt = nextWorkTime{
+                UserDefaults.standard.set(wt, forKey: "nextWorkTime")
+            }
+        }
+    }
+    
+    @Published var nextBreakTime: Int? {
+        didSet {
+            if let bt = nextBreakTime {
+                UserDefaults.standard.set(bt, forKey: "nextBreakTime")
+            }
+        }
+    }
+
+
+    
     @Published var timeActive = false //whether the timer is active
+    
+    @Published var onBreak = false //whether the timer is active
     
     @Published var notificationType: NotificationType {
         didSet {

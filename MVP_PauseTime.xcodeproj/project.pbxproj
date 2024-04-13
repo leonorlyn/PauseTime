@@ -14,6 +14,7 @@
 		F72B1BC62B7D6EB600656E97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B1BC52B7D6EB600656E97 /* HomeView.swift */; };
 		F72B1BC82B7D6F6700656E97 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B1BC72B7D6F6700656E97 /* SettingView.swift */; };
 		F72B1BCA2B7D6FA500656E97 /* Dataview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B1BC92B7D6FA500656E97 /* Dataview.swift */; };
+		F76194982BCB1C6600F09EC3 /* SessionTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76194972BCB1C6600F09EC3 /* SessionTracker.swift */; };
 		F77931932B7964B2009E3759 /* MVP_PauseTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77931922B7964B2009E3759 /* MVP_PauseTimeApp.swift */; };
 		F77931952B7964B2009E3759 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77931942B7964B2009E3759 /* ContentView.swift */; };
 		F77931972B7964B3009E3759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77931962B7964B3009E3759 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		F72B1BC52B7D6EB600656E97 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F72B1BC72B7D6F6700656E97 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F72B1BC92B7D6FA500656E97 /* Dataview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataview.swift; sourceTree = "<group>"; };
+		F76194972BCB1C6600F09EC3 /* SessionTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTracker.swift; sourceTree = "<group>"; };
 		F779318F2B7964B2009E3759 /* MVP_PauseTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP_PauseTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77931922B7964B2009E3759 /* MVP_PauseTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVP_PauseTimeApp.swift; sourceTree = "<group>"; };
 		F77931942B7964B2009E3759 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				F7080D512B96866300C51375 /* AppSettings.swift */,
+				F76194972BCB1C6600F09EC3 /* SessionTracker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				F7D37B642BC5E3DC004635D2 /* SettingViewModel.swift in Sources */,
 				F77931952B7964B2009E3759 /* ContentView.swift in Sources */,
 				F77931932B7964B2009E3759 /* MVP_PauseTimeApp.swift in Sources */,
+				F76194982BCB1C6600F09EC3 /* SessionTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
