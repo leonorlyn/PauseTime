@@ -7,6 +7,7 @@
 import Foundation
 import SwiftUI
 import AppKit
+import Cocoa
 
 class FullScreenManager {
     static let shared = FullScreenManager()
@@ -14,24 +15,53 @@ class FullScreenManager {
     private var fullScreenWindows: [NSWindow] = []  // Changed to manage multiple windows
     var onDismissFullScreenNotification: (() -> Void)?
 
-    func scheduleFullScreenNotification() {
-        clearAllWindows()  // Clear any existing windows first
+    init() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleActiveSpaceChange(_:)),
+            name: NSWorkspace.activeSpaceDidChangeNotification,
+            object: nil)
+    }
 
+    
+    @objc private func handleActiveSpaceChange(_ notification: Notification) {
+        NSLog("Active space changed, reordering windows to front")
+        fullScreenWindows.forEach { window in
+            if NSApp.isActive {
+                NSLog("Ordering window to front: \(window)")
+                window.orderFrontRegardless()
+            }
+        }
+    }
+
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+
+    func scheduleFullScreenNotification() {
+//        clearAllWindows()  // Clear any existing windows first
+        NSLog("Scheduling full-screen notifications on all screens")
         NSScreen.screens.forEach { screen in  // Iterate over each screen
             let window = NSWindow(contentRect: screen.frame, styleMask: [.borderless], backing: .buffered, defer: false)
-            window.level = .floating
+            NSLog("Creating window on screen: \(screen.localizedName) with frame: \(screen.frame)")
+            window.level = .screenSaver
             window.isOpaque = false
             window.backgroundColor = NSColor.clear
             window.contentView = NSHostingView(rootView: FullScreen(closeAction: {
                 self.dismissFullScreenNotification()
             }))
+            
+
 
             window.makeKeyAndOrderFront(nil)
+            window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
             NSApp.activate(ignoringOtherApps: true)
-            
+//            NSApplication.shared.setActivationPolicy(NSApplication.ActivationPolicy.accessory)
             fullScreenWindows.append(window)  // Store the window reference
+
         }
-        
         resetAutoDismissTimer()
     }
     

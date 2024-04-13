@@ -27,7 +27,7 @@ struct SettingView: View {
             VStack(alignment: .leading) {
                 Text("Work Time: \(Int(viewModel.workTime)) minutes")
                     .padding(.bottom, 2)
-                Slider(value: $viewModel.workTime, in: 1...120, step: 1)
+                Slider(value: $viewModel.workTime, in: 0...120, step: 1)
                     .accentColor(.blue)
             }
             .padding()

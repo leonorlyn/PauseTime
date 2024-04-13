@@ -7,9 +7,18 @@
 
 import SwiftUI
 import UserNotifications
+import Cocoa
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        NSApplication.shared.setActivationPolicy(.accessory)
+    }
+}
 
 @main
 struct MVP_PauseTimeApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     // for the authorization
     init() {
         NotificationManager.shared.requestAuthorization()
