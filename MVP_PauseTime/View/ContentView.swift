@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @StateObject private var homeViewModel = HomeViewModel()
+    @StateObject private var homeViewModel = HomeViewModel()
+//    @StateObject var sessionTracker = SessionTracker()
     var body: some View {
         TabView {
-            HomeView(viewModel: HomeViewModel())
+            HomeView(viewModel: homeViewModel)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
@@ -21,7 +22,7 @@ struct ContentView: View {
                     Label("Settings", systemImage: "gear")
                 }
             
-            DataView()
+            DataView(sessions: homeViewModel.sessionManager.sessions)
                 .tabItem {
                     Label("Activity", systemImage: "list.bullet")
                 }

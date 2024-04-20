@@ -15,8 +15,9 @@ class HomeViewModel: ObservableObject {
     @Published var onBreak: Bool // indicates work or break status
     private var nextWorkTime: Int?
     private var nextBreakTime: Int?
-   
     
+   
+    var sessionManager = SessionManager()
     private var appSettings = AppSettings.shared // get info from appsetting
     private var timerSubscription: AnyCancellable? // optional timesubscription
     private var cancellables = Set<AnyCancellable>()
@@ -28,13 +29,21 @@ class HomeViewModel: ObservableObject {
         onBreak = appSettings.onBreak
         nextWorkTime = appSettings.nextWorkTime
         nextBreakTime = appSettings.nextBreakTime
-        
         setupSubscriptions()
     }
     
     func toggleTimeActive() {
         timeActive.toggle()
+        if timeActive {
+            // Start a new session
+            let sessionType: SessionType = onBreak ? .break : .work
+            sessionManager.startSession(type: sessionType)
+        } else {
+            // End the current session
+            sessionManager.endSession()
+        }
     }
+    
     
     //update time for timer
     private func updateTimer() {
@@ -46,6 +55,7 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+    
     
     private func setupSubscriptions() {
         timerSubscription = Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink { [weak self] _ in
@@ -91,8 +101,11 @@ class HomeViewModel: ObservableObject {
     }
     
     func switchMode() {
+        sessionManager.endSession()
         self.onBreak.toggle() //switch mode
         let nextTime = onBreak ? (nextBreakTime ?? appSettings.breakTime) : (nextWorkTime ?? appSettings.workTime)
+        sessionManager.startSession(type: onBreak ? .break : .work) // record the new session
+        print("break类型:\(onBreak)")
         remainingTime = nextTime * 60
 
         

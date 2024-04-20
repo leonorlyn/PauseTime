@@ -16,9 +16,9 @@ class NotificationManager {
     func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
-                print("Notification permission granted.")
+//                print("Notification permission granted.")
             } else if let error = error {
-                print("Notification permission denied due to \(error.localizedDescription).")
+//                print("Notification permission denied due to \(error.localizedDescription).")
             }
         }
     }
@@ -26,7 +26,7 @@ class NotificationManager {
     
     // Schedule a notification
     func scheduleNotification(type: NotificationType, title: String, body: String) {
-        print("Scheduling notification: \(title)")
+//        print("Scheduling notification: \(title)")
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -37,7 +37,7 @@ class NotificationManager {
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
-                print("Error scheduling notification: \(error)")
+//                print("Error scheduling notification: \(error)")
             }
         }
     }

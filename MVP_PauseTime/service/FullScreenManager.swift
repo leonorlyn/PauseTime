@@ -25,10 +25,10 @@ class FullScreenManager {
 
     
     @objc private func handleActiveSpaceChange(_ notification: Notification) {
-        NSLog("Active space changed, reordering windows to front")
+//        NSLog("Active space changed, reordering windows to front")
         fullScreenWindows.forEach { window in
             if NSApp.isActive {
-                NSLog("Ordering window to front: \(window)")
+//                NSLog("Ordering window to front: \(window)")
                 window.orderFrontRegardless()
             }
         }
@@ -42,10 +42,10 @@ class FullScreenManager {
 
     func scheduleFullScreenNotification() {
 //        clearAllWindows()  // Clear any existing windows first
-        NSLog("Scheduling full-screen notifications on all screens")
+//        NSLog("Scheduling full-screen notifications on all screens")
         NSScreen.screens.forEach { screen in  // Iterate over each screen
             let window = NSWindow(contentRect: screen.frame, styleMask: [.borderless], backing: .buffered, defer: false)
-            NSLog("Creating window on screen: \(screen.localizedName) with frame: \(screen.frame)")
+//            NSLog("Creating window on screen: \(screen.localizedName) with frame: \(screen.frame)")
             window.level = .screenSaver
             window.isOpaque = false
             window.backgroundColor = NSColor.clear

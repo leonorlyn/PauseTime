@@ -7,30 +7,18 @@
 
 import Foundation
 
+
 class SessionTracker: ObservableObject {
-    @Published var totalScreenTime: TimeInterval = 0
-    @Published var totalWorkTime: TimeInterval = 0
-    @Published var totalRestTime: TimeInterval = 0
+    @Published var sessions: [Session] = []
 
-    private var sessionStartTime: Date?
-    private var isWorkSession: Bool = true
-
-    // Start a new session
-    func startSession(isWork: Bool) {
-        sessionStartTime = Date()  // Capture the current time as the start
-        isWorkSession = isWork  // Set whether it's a work session or not
+    func startSession(type: SessionType, at startTime: Date) {
+        let newSession = Session(startTime: startTime, endTime: startTime, type: type) // endTime will be updated on endSession
+        sessions.append(newSession)
+        print("Session started: \(newSession)")
     }
 
-    // End the current session
-    func endSession() {
-        guard let start = sessionStartTime else { return }
-        let duration = Date().timeIntervalSince(start)  // Calculate duration
-
-        if isWorkSession {
-            totalWorkTime += duration  // Add to total work time if it's a work session
-        } else {
-            totalRestTime += duration  // Add to rest time otherwise
-        }
-        totalScreenTime += duration  // Always add to total screen time
+    func endSession(at endTime: Date) {
+        guard !sessions.isEmpty else { return }
+        sessions[sessions.count - 1].endTime = endTime
     }
 }

@@ -21,7 +21,7 @@ struct FullScreen: View {
                 .foregroundColor(.white)
             Button("Close") {
                 closeAction()
-                print("Close action triggered.")
+//                print("Close action triggered.")
             }
             .padding()
             .foregroundColor(.white) // Text color
@@ -37,7 +37,7 @@ struct FullScreen: View {
 struct FullScreenView_Previews: PreviewProvider {
     static var previews: some View {
         FullScreen() {
-            print("Close action triggered.")
+//            print("Close action triggered.")
         }
     }
 }
