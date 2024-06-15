@@ -15,7 +15,6 @@ class HomeViewModel: ObservableObject {
     @Published var onBreak: Bool // indicates work or break status
     private var nextWorkTime: Int?
     private var nextBreakTime: Int?
-    
    
     var sessionManager = SessionManager()
     private var appSettings = AppSettings.shared // get info from appsetting
@@ -40,10 +39,8 @@ class HomeViewModel: ObservableObject {
             sessionManager.startSession(type: sessionType)
         } else {
             // End the current session
-            sessionManager.endSession()
-        }
+            sessionManager.endSession()        }
     }
-    
     
     //update time for timer
     private func updateTimer() {
@@ -55,7 +52,6 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    
     
     private func setupSubscriptions() {
         timerSubscription = Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink { [weak self] _ in
@@ -100,6 +96,17 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func skipBreak() {
+        DispatchQueue.main.async {
+            self.onBreak = false
+            self.remainingTime = self.appSettings.workTime * 60
+            self.timeActive = true  // Automatically restart work time
+            self.sessionManager.setAsSkipSession()
+            self.sessionManager.endSession()
+            self.sessionManager.startSession(type: .work)
+        }
+    }
+    
     func switchMode() {
         sessionManager.endSession()
         self.onBreak.toggle() //switch mode
@@ -122,11 +129,7 @@ class HomeViewModel: ObservableObject {
                 FullScreenManager.shared.resetAutoDismissTimer()
                 FullScreenManager.shared.onDismissFullScreenNotification = {
                     // if user skip break, update timer
-                    DispatchQueue.main.async {
-                        self.onBreak = false
-                        self.remainingTime = self.appSettings.workTime * 60
-                        self.timeActive = true // automatic start the work time
-                    }
+                    self.skipBreak()
                 }
             }
         }

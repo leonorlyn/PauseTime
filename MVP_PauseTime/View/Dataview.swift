@@ -9,11 +9,14 @@ import SwiftUI
 
 
 struct DataView: View {
-    var sessions: [Session]
+    @ObservedObject var sessionManager: SessionManager
+    @ObservedObject var countManager: CountManager
 
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(sessions, id: \.self) { session in
+            DayCountView(countManager: countManager)
+            
+            ForEach(sessionManager.todaySessions, id: \.self) { session in
                 HStack {
                     Text("\(session.startTime, formatter: itemFormatter) - \(session.endTime, formatter: itemFormatter)")
                         .foregroundColor(.gray)
@@ -34,8 +37,8 @@ struct DataView: View {
             return .blue
         case .break:
             return .green
-        case .inactive:
-            return .gray
+        case .skip:
+            return .red
         }
     }
 

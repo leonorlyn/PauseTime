@@ -5,6 +5,7 @@
 //  Created by Leonora on 2024/2/14.
 //
 
+
 import SwiftUI
 
 struct HomeView: View {
@@ -12,22 +13,37 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
-            Text(viewModel.onBreak ? "Break Time" : "Work Time")
-                .font(.headline)
-
-            Text(timeString(from: viewModel.remainingTime))
-                .font(.largeTitle)
-                .padding()
-
-            Button(action: {
-                viewModel.toggleTimeActive()
-            }) {
-                Text(viewModel.timeActive ? "Pause" : "Start")
-                    .padding()
-            }
-            .padding()
+            mainTimerDisplay
+            toggleButton
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+        .edgesIgnoringSafeArea(.all)
+    }
+    
+    private var mainTimerDisplay: some View {
+        Text(timeString(from: viewModel.remainingTime))
+            .font(.system(size: 72))
+            .padding(.vertical, 20)
+    }
+    
+    private var toggleButton: some View {
+        Button(action: {
+            viewModel.toggleTimeActive()
+        }) {
+            Text(viewModel.timeActive ? "Pause" : "Start")
+                .font(.system(size: 16))
+                .padding(.horizontal, 25)
+                .padding(.vertical, 13)
+                .foregroundColor(.black)
+                .background(Color.white)
+                .cornerRadius(0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.black, lineWidth: 1)
+                )
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 
     private func timeString(from totalSeconds: Int) -> String {
@@ -37,7 +53,7 @@ struct HomeView: View {
     }
 }
 
-struct Homeview_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(viewModel: HomeViewModel())
     }

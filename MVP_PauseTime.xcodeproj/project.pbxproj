@@ -15,10 +15,17 @@
 		F72B1BC82B7D6F6700656E97 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B1BC72B7D6F6700656E97 /* SettingView.swift */; };
 		F72B1BCA2B7D6FA500656E97 /* Dataview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B1BC92B7D6FA500656E97 /* Dataview.swift */; };
 		F761949C2BCE1BE400F09EC3 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761949B2BCE1BE400F09EC3 /* SessionManager.swift */; };
+		F761949E2BD5C39F00F09EC3 /* TimeChangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761949D2BD5C39F00F09EC3 /* TimeChangeManager.swift */; };
+		F76194A02BD5C59000F09EC3 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761949F2BD5C59000F09EC3 /* NotificationExtensions.swift */; };
 		F77931932B7964B2009E3759 /* MVP_PauseTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77931922B7964B2009E3759 /* MVP_PauseTimeApp.swift */; };
 		F77931952B7964B2009E3759 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77931942B7964B2009E3759 /* ContentView.swift */; };
 		F77931972B7964B3009E3759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77931962B7964B3009E3759 /* Assets.xcassets */; };
 		F779319B2B7964B3009E3759 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F779319A2B7964B3009E3759 /* Preview Assets.xcassets */; };
+		F7A831C22BD82F63000647D7 /* CountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A831C12BD82F63000647D7 /* CountManager.swift */; };
+		F7A831C42BD83792000647D7 /* DayCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A831C32BD83792000647D7 /* DayCountView.swift */; };
+		F7A831C62BD83A0C000647D7 /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A831C52BD83A0C000647D7 /* SessionType.swift */; };
+		F7A831C82BD8401D000647D7 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A831C72BD8401D000647D7 /* DebugView.swift */; };
+		F7A831CA2BDC6B7B000647D7 /* WeekBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A831C92BDC6B7B000647D7 /* WeekBarChartView.swift */; };
 		F7BCCBAD2BB8C6660048CF6E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BCCBAC2BB8C6660048CF6E /* HomeViewModel.swift */; };
 		F7D37B642BC5E3DC004635D2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D37B632BC5E3DC004635D2 /* SettingViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -32,12 +39,19 @@
 		F72B1BC72B7D6F6700656E97 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F72B1BC92B7D6FA500656E97 /* Dataview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataview.swift; sourceTree = "<group>"; };
 		F761949B2BCE1BE400F09EC3 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		F761949D2BD5C39F00F09EC3 /* TimeChangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangeManager.swift; sourceTree = "<group>"; };
+		F761949F2BD5C59000F09EC3 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F779318F2B7964B2009E3759 /* MVP_PauseTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP_PauseTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77931922B7964B2009E3759 /* MVP_PauseTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVP_PauseTimeApp.swift; sourceTree = "<group>"; };
 		F77931942B7964B2009E3759 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F77931962B7964B3009E3759 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F77931982B7964B3009E3759 /* MVP_PauseTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MVP_PauseTime.entitlements; sourceTree = "<group>"; };
 		F779319A2B7964B3009E3759 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7A831C12BD82F63000647D7 /* CountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountManager.swift; sourceTree = "<group>"; };
+		F7A831C32BD83792000647D7 /* DayCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountView.swift; sourceTree = "<group>"; };
+		F7A831C52BD83A0C000647D7 /* SessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
+		F7A831C72BD8401D000647D7 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		F7A831C92BDC6B7B000647D7 /* WeekBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekBarChartView.swift; sourceTree = "<group>"; };
 		F7BCCBAC2BB8C6660048CF6E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F7D37B632BC5E3DC004635D2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +73,10 @@
 				F703B2092B83BF7F00AE91E2 /* NotificationManager.swift */,
 				F7080D4F2B90668700C51375 /* FullScreenManager.swift */,
 				F761949B2BCE1BE400F09EC3 /* SessionManager.swift */,
+				F761949D2BD5C39F00F09EC3 /* TimeChangeManager.swift */,
+				F761949F2BD5C59000F09EC3 /* NotificationExtensions.swift */,
+				F7A831C12BD82F63000647D7 /* CountManager.swift */,
+				F7A831C52BD83A0C000647D7 /* SessionType.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -118,6 +136,9 @@
 				F72B1BC72B7D6F6700656E97 /* SettingView.swift */,
 				F72B1BC52B7D6EB600656E97 /* HomeView.swift */,
 				F703B20F2B85C77C00AE91E2 /* FullScreenView.swift */,
+				F7A831C32BD83792000647D7 /* DayCountView.swift */,
+				F7A831C72BD8401D000647D7 /* DebugView.swift */,
+				F7A831C92BDC6B7B000647D7 /* WeekBarChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,15 +225,22 @@
 				F7080D502B90668700C51375 /* FullScreenManager.swift in Sources */,
 				F703B20A2B83BF7F00AE91E2 /* NotificationManager.swift in Sources */,
 				F72B1BCA2B7D6FA500656E97 /* Dataview.swift in Sources */,
+				F7A831C22BD82F63000647D7 /* CountManager.swift in Sources */,
 				F7BCCBAD2BB8C6660048CF6E /* HomeViewModel.swift in Sources */,
+				F76194A02BD5C59000F09EC3 /* NotificationExtensions.swift in Sources */,
+				F7A831C62BD83A0C000647D7 /* SessionType.swift in Sources */,
 				F72B1BC62B7D6EB600656E97 /* HomeView.swift in Sources */,
 				F72B1BC82B7D6F6700656E97 /* SettingView.swift in Sources */,
+				F7A831CA2BDC6B7B000647D7 /* WeekBarChartView.swift in Sources */,
 				F761949C2BCE1BE400F09EC3 /* SessionManager.swift in Sources */,
 				F7080D522B96866300C51375 /* AppSettings.swift in Sources */,
 				F703B2102B85C77C00AE91E2 /* FullScreenView.swift in Sources */,
+				F7A831C82BD8401D000647D7 /* DebugView.swift in Sources */,
 				F7D37B642BC5E3DC004635D2 /* SettingViewModel.swift in Sources */,
 				F77931952B7964B2009E3759 /* ContentView.swift in Sources */,
+				F761949E2BD5C39F00F09EC3 /* TimeChangeManager.swift in Sources */,
 				F77931932B7964B2009E3759 /* MVP_PauseTimeApp.swift in Sources */,
+				F7A831C42BD83792000647D7 /* DayCountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

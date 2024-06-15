@@ -5,6 +5,10 @@
 //  Created by Leonora on 2024/2/11.
 //
 
+
+
+
+
 import SwiftUI
 import UserNotifications
 import Cocoa
@@ -17,8 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 @main
 struct MVP_PauseTimeApp: App {
+    var countManager = CountManager()
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     // for the authorization
     init() {
         NotificationManager.shared.requestAuthorization()
@@ -26,7 +31,7 @@ struct MVP_PauseTimeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(countManager)
         }
     }
 }
