@@ -10,11 +10,14 @@ import Foundation
 class AppSettings: ObservableObject {
     static let shared = AppSettings() // singleton pattern for  single access and data consistence
 
+    // the break time
     @Published var breakTime: Int {
         didSet {
             UserDefaults.standard.set(breakTime, forKey: "breakTime")
         }
     }
+
+    // the work time
     @Published var workTime: Int {
         didSet {
             UserDefaults.standard.set(workTime, forKey: "workTime")
